@@ -1,0 +1,37 @@
+<mat-form-field class="form-element">
+  <input matInput placeholder="Search about movie here ..." name="search" [(ngModel)]="search" (input)="searchMovies()">
+  <button matSuffix mat-button>
+    <mat-icon>search</mat-icon>
+  </button>
+</mat-form-field>
+
+<table class="table">
+  <thead>
+    <th>ID </th>
+    <th [class.active]="order === 'name'" (click)="setOrder('name')">
+      <mat-icon>arrow_downward</mat-icon> Title
+    </th>
+    <th>Director</th>
+    <th>Release Date</th>
+    <th>Type</th>
+    <th>Actions</th>
+
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let movie of movies | searchMovie:search | orderBy: order:reverse | paginate: {itemsPerPage:5,currentPage:page};  ">
+      <td data-label="ID">{{movie.id}}</td>
+      <td data-label="Title">{{movie.title}}</td>
+      <td data-label="Director">{{movie.director}}</td>
+      <td data-label="Release Date">{{movie.releaseDate}}</td>
+      <td data-label="Type">{{movie.type}}</td>
+      <td data-label="Actions">
+        <button mat-stroked-button (click)="addMovie()">Add</button>
+        <button mat-stroked-button (click)="updateMovie(movie.id)">Update</button>
+        <button mat-stroked-button (click)="deleteMovie(movie.id)">Delete</button>
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+<pagination-controls (pageChange)="page = ($event)"></pagination-controls>

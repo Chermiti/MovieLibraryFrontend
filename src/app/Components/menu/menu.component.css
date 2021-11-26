@@ -1,0 +1,7 @@
+mat-toolbar {
+  background: #79797a;
+  color: white;
+}
+.space {
+  flex: 1 1 auto;
+}

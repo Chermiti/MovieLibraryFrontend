@@ -1,0 +1,30 @@
+p {
+  font-family: Lato;
+}
+* {
+  padding: 10px 15%;
+}
+.header {
+  margin: 0 0 20px 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.form-element {
+  padding: 5px 0px 5px 2px;
+  width: 100%;
+}
+
+.button {
+  width: 100%;
+}

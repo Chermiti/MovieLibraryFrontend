@@ -1,0 +1,28 @@
+<div class="header">
+  <h2>Add a movie</h2>
+</div>
+<div class="container">
+  <mat-form-field class="form-element">
+    <input matInput placeholder="Movie Title" name="title" ngDefaultControl [(ngModel)]="title">
+  </mat-form-field>
+
+  <mat-form-field class="form-element">
+    <input matInput placeholder="Director" name="director" ngDefaultControl [(ngModel)]="director">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="form-element">
+    <mat-label>Release date</mat-label>
+    <input matInput (dateChange)="OnDateChange($event)" [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker class="form-element" name="releasedate" ngDefaultControl>
+    </mat-datepicker>
+  </mat-form-field>
+  <mat-form-field class="form-element">
+    <input matInput placeholder="Enter a movie type ..." name="type" ngDefaultControl [(ngModel)]="movietype">
+  </mat-form-field>
+
+
+  <div class="form-element">
+    <button mat-raised-button color="primary" type="submit" class="button" (click)="addMovie()">Save Movie</button>
+  </div>
+</div>
